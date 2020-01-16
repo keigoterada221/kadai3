@@ -1,0 +1,18 @@
+<h1>Editing Book</h1>
+
+<%= form_for(@book) do |f| %>
+
+<!-- render入れる -->
+<h4>Title</h4>
+<%= f.text_field :title %>
+
+<h4>Opinion</h4>
+<%= f.text_area :body %>
+
+<%= f.submit "Update Book" %>
+
+<%= link_to "Show" ,book_path %>
+<%="|"%>
+<%= link_to "Back" ,books_path %>
+
+<% end %>

@@ -1,0 +1,37 @@
+<!-- https://rails-study.net/flash/を参照 -->
+<!-- flash メッセージを追記 -->
+<h1>Book detail</h1>
+
+<table>
+	<thead>
+		<tr>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr>
+			<td>
+				<%= attachment_image_tag @book.user, :profile_image, :fill,60,60, fallback:"no_image.jpg" %>
+ 			</td>
+			<td>
+				<%= @book.title %>
+		    </td>
+			<td>
+				<%= @book.body %>
+			</td>
+			<td>
+				<%= link_to "Edit" ,edit_book_path %>
+			</td>
+			<td>
+				<%= link_to "Destroy" ,book_path(@book),method: :delete %>
+			</td>
+		</tr>
+
+	</tbody>
+</table>
+
+
+
+

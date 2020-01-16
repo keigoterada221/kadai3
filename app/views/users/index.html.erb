@@ -1,0 +1,26 @@
+<h1>Users</h1>
+<table>
+	<thead>
+		<tr>
+			<th>image</th>
+			<th>name</th>
+		</tr>
+	</thead>
+
+	<tbody>
+<!--  変数bookを使ってtitle,bodyを以下で表示  -->
+		<% @users.each do |user| %>
+		<tr>
+			<td>
+				<%= attachment_image_tag user.user, :profile_image, :fill,60,60, fallback:"no_image.jpg" %>
+ 			</td>
+			<td>
+				<%= user.name %>
+		    </td>
+		    <td>
+				<%= link_to "Show" ,user_path(user.id) %>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
