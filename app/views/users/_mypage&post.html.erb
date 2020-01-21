@@ -1,0 +1,52 @@
+<!-- userのshowとbooksのnew -->
+<%= form_for(@book) do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
+<% end %>
+<div class="templete">
+
+
+<!-- ユーザー情報 -->
+<h1>User info</h1>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<%= attachment_image_tag user, :profile_image,:fill, 60 ,60,format: "jpeg", fallback:"no_image.jpg" %>
+		</tr>
+		<tr>
+			<th>name</th>
+			<th><%= user.name %></th>
+		</tr>
+		<tr>
+			<th>introduction</th>
+			<th><%= user.introduction %></th>
+		</tr>
+	</thead>
+</table>
+
+<!-- http://blog.livedoor.jp/tomoyayoshikawa1022/archives/3681078.html ロゴをボタンに -->
+	<% if user.id == current_user.id %>
+	<%= link_to edit_user_path(user),class: "btn btn-default user-edit-btn" do %>
+	<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+	<% end %>
+	<% end %>
+
+
+
+<!-- ここから新規投稿部分 -->
+<h1>New book</h1>
+<!-- form_for部分(@bookは=Book.new) -->
+<%= form_for(book) do |f| %>
+
+
+<h4>Title</h4>
+<%= f.text_field :title %>
+
+<h4>Opinion</h4>
+<%= f.text_area :body %><br>
+
+
+<!-- ボタン全体を青色に。classの後は=ではなく：なので注意 -->
+<%= f.submit "Create Book",class: "btn btn-primary"%>
+
+<% end %>
+</div>

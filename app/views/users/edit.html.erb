@@ -1,13 +1,20 @@
+
+<div class="user-edit">
+<%= form_for(@user) do |f| %>
+<%= render 'layouts/error_messages2', model: f.object %>
+<% end %>
+
 <h1>User info</h1>
 <%= form_for(@user) do |f| %>
 <h3>Name</h3>
 <%= f.text_field :name %>
 
 <h3>Image</h3>
-<%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+<%= f.attachment_field :profile_image %>
 
 <h3>Introduction</h3>
-<%= f.text_area :introduction %>
+<%= f.text_area :introduction %><br>
 
 <%= f.submit "Update User" %>
 <% end %>
+</div>

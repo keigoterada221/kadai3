@@ -1,5 +1,15 @@
+
+
+
+<div class="container">
+	<div class="row">
+		 <div class="col-xs-3">
+<%= render 'users/mypage&post', {user: current_user,users: @users,book: @book} %>
+		 </div>
+<div class="col-xs-9">
+<div class="main clearfix">
 <h1>Users</h1>
-<table>
+<table class="table table-striped">
 	<thead>
 		<tr>
 			<th>image</th>
@@ -12,7 +22,7 @@
 		<% @users.each do |user| %>
 		<tr>
 			<td>
-				<%= attachment_image_tag user.user, :profile_image, :fill,60,60, fallback:"no_image.jpg" %>
+				<%= attachment_image_tag user, :profile_image, :fill,60,60, fallback:"no_image.jpg" %>
  			</td>
 			<td>
 				<%= user.name %>
@@ -24,3 +34,7 @@
 		<% end %>
 	</tbody>
 </table>
+</div>
+</div>
+</div>
+</div>
