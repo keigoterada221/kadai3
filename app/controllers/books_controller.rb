@@ -25,6 +25,7 @@ class BooksController < ApplicationController
 
 	def show
 		@book = Book.find(params[:id])
+		@new = Book.new
 		# アソシエーションした時に使える記述。@bookからユーザを特定できる
 		@user = @book.user
 	end
