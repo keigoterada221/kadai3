@@ -32,7 +32,7 @@
 			<td>
 				<!-- 下記のbook.userはブロック変数book
 				のuser_idで関連づけているユーザーのアイコンを表示 -->
-				<%= attachment_image_tag book.user, :profile_image, :fill,60,60, fallback:"no_image.jpg" %>
+				<%= attachment_image_tag book.user, :profile_image, :fill,50,50, fallback:"no_image.jpg" %>
  			</td>
 			<td>
 				<%= link_to book.title,book_path(book) %>
