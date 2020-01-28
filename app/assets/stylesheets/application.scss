@@ -16,11 +16,7 @@
  @import "bootstrap-sprockets";
     @import "bootstrap";
 
-.clearfix::after {
-	content: "";
-	clear: both;
-	display: block;
-}
+
 .templete {
 	float: left;
 }
@@ -102,4 +98,25 @@ footer {
 .sign-up {
 	width: 100%;
 	margin-left: 5%;
+}
+
+
+
+.image1 {
+background-image: url(test1.jpg);
+}
+.image2 {
+background-image: url(test2.jpg);
+}
+.image3 {
+background-image: url(test3.jpg);
+}
+.image4 {
+background-image: url(test4.jpg);
+}
+.image5 {
+background-image: url(test5.jpg);
+}
+#container{
+  height: 500px;
 }

@@ -21,6 +21,7 @@ class BooksController < ApplicationController
 	def index
 		@books = Book.all
 		@book = Book.new
+		@user = User.find(1)
 	end
 
 	def show
@@ -28,12 +29,14 @@ class BooksController < ApplicationController
 		@new = Book.new
 		# アソシエーションした時に使える記述。@bookからユーザを特定できる
 		@user = @book.user
+		@books_comment = BooksComment.new
+
 	end
 
 	def edit
 		@book = Book.find(params[:id])
 		# =で結ぶ際は左右のデータ型が同じで無いといけない。
-		if @book.user.id != current_user.id
+		if @book.user.id != current_user_id
 		   redirect_to books_path
 		end
 	end

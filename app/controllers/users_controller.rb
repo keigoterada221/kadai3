@@ -34,6 +34,20 @@ class UsersController < ApplicationController
 		end
 	end
 
+
+
+	def follows
+		@user = User.find(params[:id])
+		
+	end
+
+	def followers
+		user = User.find(params[:id])
+		@users = user.followers
+	end
+
+
+
 	protected
 
 	def configure_permitted_parameters

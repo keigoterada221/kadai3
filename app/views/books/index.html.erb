@@ -4,7 +4,8 @@
 					<%= render 'users/mypage&post', {user: current_user,books: @books,book: @book} %>
 					</div>
 <div class="col-xs-9">
-<div class="main clearfix">
+	<!-- clearfixは不要 -->
+<div class="main">
 <h1>Books</h1>
 
 <table class="table table-striped">
@@ -13,6 +14,8 @@
 			<th></th>
 			<th>Title</th>
 			<th>Opinion</th>
+			<th>コメント数</th>
+			<th>いいね数</th>
 		</tr>
 	</thead>
 
@@ -32,6 +35,23 @@
 		    </td>
 			<td>
 				<%= book.body %>
+			</td>
+			<td>
+				<%= link_to "#{book.books_comments.count}件",book_path(book.id) %>
+			</td>
+			<td>
+
+				<%= link_to "#{book.favorites.count}いいね" ,book_path(book.id) %>
+
+			</td>
+			<td>
+				<% if current_user != book.user %>
+					<% if book.user.followed_by?(current_user) %>
+						<p><%= link_to "フォロー済み",user_relationships_path(book.user.id),method: :delete %></p>
+					<% else %>
+						<p><%= link_to "フォローする", user_relationships_path(book.user.id),method: :post %></p>
+					<% end %>
+				<% end %>
 			</td>
 		</tr>
 		<% end %>
